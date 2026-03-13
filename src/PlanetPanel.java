@@ -95,15 +95,88 @@ public class PlanetPanel extends JPanel {
 
                 brightness = Math.max(0, brightness);
 
+// ambient
+                brightness = brightness * 0.85 + 0.15;
+
+// limb shading
+                brightness *= 0.7 + 0.3 * nz3;
+
+                brightness = Math.min(1, brightness);
+
+
                 double rx = dx * Math.cos(rotation) - dz * Math.sin(rotation);
                 double rz = dx * Math.sin(rotation) + dz * Math.cos(rotation);
 
-                double value =
-                        noise.noise(rx * scale, dy * scale) +
-                                noise.noise(dy * scale, rz * scale) +
-                                noise.noise(rx * scale, rz * scale);
+                double value = 0;
+                double amplitude = 1;
+                double frequency = 1;
+                double maxValue = 0;
 
-                value /= 3.0;
+                for (int i = 0; i < 4; i++) {
+
+                    double n =
+                            noise.noise(rx * scale * frequency, dy * scale * frequency) +
+                                    noise.noise(dy * scale * frequency, rz * scale * frequency) +
+                                    noise.noise(rx * scale * frequency, rz * scale * frequency);
+
+                    n /= 3.0;
+
+                    value += n * amplitude;
+
+                    maxValue += amplitude;
+
+                    amplitude *= 0.5;
+                    frequency *= 2;
+                }
+
+                value /= maxValue;
+
+                value = Math.pow(value, 1.2);
+
+                double eps = 0.01;
+
+                double valueX = 0;
+                double valueY = 0;
+
+                amplitude = 1;
+                frequency = 1;
+                maxValue = 0;
+
+                for (int i = 0; i < 4; i++) {
+
+                    double nx =
+                            noise.noise((rx + eps) * scale * frequency, dy * scale * frequency) +
+                                    noise.noise(dy * scale * frequency, rz * scale * frequency) +
+                                    noise.noise((rx + eps) * scale * frequency, rz * scale * frequency);
+
+                    nx /= 3.0;
+
+                    double ny =
+                            noise.noise(rx * scale * frequency, (dy + eps) * scale * frequency) +
+                                    noise.noise((dy + eps) * scale * frequency, rz * scale * frequency) +
+                                    noise.noise(rx * scale * frequency, rz * scale * frequency);
+
+                    ny /= 3.0;
+
+                    valueX += nx * amplitude;
+                    valueY += ny * amplitude;
+
+                    maxValue += amplitude;
+
+                    amplitude *= 0.5;
+                    frequency *= 2;
+                }
+
+                valueX /= maxValue;
+                valueY /= maxValue;
+
+                double slopeX = valueX - value;
+                double slopeY = valueY - value;
+
+                brightness -= slopeX * 0.8;
+                brightness -= slopeY * 0.8;
+
+                brightness = Math.max(0, Math.min(1, brightness));
 
                 int color;
 
