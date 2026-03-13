@@ -196,5 +196,3 @@ Future extensions could include:
 - 🚀 OpenGL / GPU rendering
 
 ---
-
-If you'd like, I can also show you **one small change that will make your GitHub repo look significantly more professional** (a **centered GIF demo header like big open-source graphics projects use**).
