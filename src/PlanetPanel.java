@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class PlanetPanel extends JPanel {
 
+    private double rotation = 0;
+
     private BufferedImage image;
     private Noise noise;
 
@@ -13,6 +15,12 @@ public class PlanetPanel extends JPanel {
         int height = 800;
 
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+        new Timer(40, e -> {
+            rotation += 0.01;
+            generatePlanet();
+            repaint();
+        }).start();
 
         //SEED
         noise = new Noise(54321); // seed
@@ -67,14 +75,16 @@ public class PlanetPanel extends JPanel {
 
                 brightness = Math.max(0, brightness);
 
-                double longitude = Math.atan2(dy, dx);
-                double latitude = Math.acos(dz);
+                double rx = dx * Math.cos(rotation) - dz * Math.sin(rotation);
+                double rz = dx * Math.sin(rotation) + dz * Math.cos(rotation);
 
-                double value = noise.noise(dx * scale, dy * scale)
-                        + noise.noise(dy * scale, dz * scale)
-                        + noise.noise(dx * scale, dz * scale);
+                double value =
+                        noise.noise(rx * scale, dy * scale) +
+                                noise.noise(dy * scale, rz * scale) +
+                                noise.noise(rx * scale, rz * scale);
 
                 value /= 3.0;
+
                 int color;
 
                 if (value < 0.35)

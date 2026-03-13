@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Lighting Added" />
+    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Fixed center pinning distortion">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlanetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlanetPanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773411988668</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed center pinning distortion">
+      <option name="closed" value="true" />
+      <created>1773412230931</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1773412230931</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -115,6 +126,7 @@
     <MESSAGE value="Improved 2D terrain generation" />
     <MESSAGE value="Converted 2D terrain to 3D sphere" />
     <MESSAGE value="Lighting Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lighting Added" />
+    <MESSAGE value="Fixed center pinning distortion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed center pinning distortion" />
   </component>
 </project>
