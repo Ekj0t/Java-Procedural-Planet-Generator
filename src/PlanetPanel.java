@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 public class PlanetPanel extends JPanel {
 
@@ -8,6 +9,7 @@ public class PlanetPanel extends JPanel {
 
     private BufferedImage image;
     private Noise noise;
+    private Random random = new Random();
 
     public PlanetPanel() {
 
@@ -15,6 +17,24 @@ public class PlanetPanel extends JPanel {
         int height = 800;
 
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+        setFocusable(true);
+        requestFocusInWindow();
+
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_R) {
+
+                    long seed = random.nextLong();
+
+                    noise = new Noise(seed);
+
+                    System.out.println("New planet seed: " + seed);
+                }
+            }
+        });
 
         new Timer(40, e -> {
             rotation += 0.01;
