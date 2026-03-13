@@ -50,7 +50,7 @@ public class PlanetPanel extends JPanel {
             }
         });
 
-        new Timer(40, e -> {
+        new Timer(33, e -> {
             rotation += 0.01;
             generatePlanet();
             repaint();
@@ -89,7 +89,8 @@ public class PlanetPanel extends JPanel {
         lightY /= len;
         lightZ /= len;
 
-
+        double cosR = Math.cos(rotation);
+        double sinR = Math.sin(rotation);
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -117,17 +118,15 @@ public class PlanetPanel extends JPanel {
 
                 brightness = Math.max(0, brightness);
 
-// ambient
                 brightness = brightness * 0.85 + 0.15;
 
-// limb shading
                 brightness *= 0.7 + 0.3 * nz3;
 
                 brightness = Math.min(1, brightness);
 
 
-                double rx = dx * Math.cos(rotation) - dz * Math.sin(rotation);
-                double rz = dx * Math.sin(rotation) + dz * Math.cos(rotation);
+                double rx = dx * cosR - dz * sinR;
+                double rz = dx * sinR + dz * cosR;
 
                 double value = 0;
                 double amplitude = 1;
@@ -243,7 +242,7 @@ public class PlanetPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, null);
         g.setColor(Color.WHITE);
-
+        g.setFont(new Font("Minecrafter", Font.PLAIN, 16));
         g.drawString("Planet: " + currentType, 10, 20);
         g.drawString("Seed: " + globalSeed, 10, 40);
     }

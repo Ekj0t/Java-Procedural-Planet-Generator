@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Different Planet Types Added">
+    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Added controls for planet type and seed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlanetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlanetPanel.java" afterDir="false" />
     </list>
@@ -163,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773420196834</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added controls for planet type and seed">
+      <option name="closed" value="true" />
+      <created>1773420923098</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1773420923098</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -178,6 +186,7 @@
     <MESSAGE value="Blue halo around the planet and fixed margin" />
     <MESSAGE value="Seed randomizer" />
     <MESSAGE value="Different Planet Types Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Different Planet Types Added" />
+    <MESSAGE value="Added controls for planet type and seed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added controls for planet type and seed" />
   </component>
 </project>
