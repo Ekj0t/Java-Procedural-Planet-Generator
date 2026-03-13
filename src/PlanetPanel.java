@@ -33,7 +33,25 @@ public class PlanetPanel extends JPanel {
                 double nx = x * scale;
                 double ny = y * scale;
 
-                double value = noise.noise(nx, ny);
+                double value = 0;
+
+                double amplitude = 1;
+                double frequency = 1;
+
+                double maxValue = 0;
+
+                for (int i = 0; i < 5; i++) {
+
+                    value += noise.noise(nx * frequency, ny * frequency) * amplitude;
+
+                    maxValue += amplitude;
+
+                    amplitude *= 0.5;
+                    frequency *= 2;
+                }
+
+                value /= maxValue;
+                value = Math.pow(value, 1.2);
 
                 int color;
 
