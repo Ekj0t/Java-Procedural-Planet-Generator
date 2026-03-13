@@ -9,7 +9,9 @@ public class PlanetPanel extends JPanel {
     private PlanetGenerator generator;
     private BufferedImage image;
     private Noise noise;
+    private PlanetType currentType;
     private Random random = new Random();
+    private long globalSeed;
 
     public PlanetPanel() {
 
@@ -28,16 +30,22 @@ public class PlanetPanel extends JPanel {
                 if (e.getKeyCode() == java.awt.event.KeyEvent.VK_R) {
 
                     long seed = random.nextLong();
-
+                    globalSeed = seed;
                     noise = new Noise(seed);
 
-                    PlanetType[] types = PlanetType.values();
-                    PlanetType type = types[random.nextInt(types.length)];
-
-                    generator = new PlanetGenerator(type);
-
                     System.out.println("New planet seed: " + seed);
-                    System.out.println("Planet type: " + type);
+                }
+
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_P) {
+
+                    PlanetType[] types = PlanetType.values();
+
+                    int index = (currentType.ordinal() + 1) % types.length;
+
+                    currentType = types[index];
+                    generator = new PlanetGenerator(currentType);
+
+                    System.out.println("Planet type: " + currentType);
                 }
             }
         });
@@ -48,15 +56,16 @@ public class PlanetPanel extends JPanel {
             repaint();
         }).start();
 
-        //SEED
-        noise = new Noise(54321); // seed
+        // initial seed
+        noise = new Noise(54321);
 
+        // initialize planet type
         PlanetType[] types = PlanetType.values();
-        PlanetType type = types[random.nextInt(types.length)];
+        currentType = types[random.nextInt(types.length)];
 
-        generator = new PlanetGenerator(type);
+        generator = new PlanetGenerator(currentType);
 
-        System.out.println("Planet type: " + type);
+        System.out.println("Planet type: " + currentType);
     }
 
     private void generatePlanet() {
@@ -79,6 +88,8 @@ public class PlanetPanel extends JPanel {
         lightX /= len;
         lightY /= len;
         lightZ /= len;
+
+
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -231,5 +242,9 @@ public class PlanetPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, null);
+        g.setColor(Color.WHITE);
+
+        g.drawString("Planet: " + currentType, 10, 20);
+        g.drawString("Seed: " + globalSeed, 10, 40);
     }
 }
