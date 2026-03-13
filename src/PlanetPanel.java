@@ -6,7 +6,7 @@ import java.util.Random;
 public class PlanetPanel extends JPanel {
 
     private double rotation = 0;
-
+    private PlanetGenerator generator;
     private BufferedImage image;
     private Noise noise;
     private Random random = new Random();
@@ -31,7 +31,13 @@ public class PlanetPanel extends JPanel {
 
                     noise = new Noise(seed);
 
+                    PlanetType[] types = PlanetType.values();
+                    PlanetType type = types[random.nextInt(types.length)];
+
+                    generator = new PlanetGenerator(type);
+
                     System.out.println("New planet seed: " + seed);
+                    System.out.println("Planet type: " + type);
                 }
             }
         });
@@ -45,7 +51,12 @@ public class PlanetPanel extends JPanel {
         //SEED
         noise = new Noise(54321); // seed
 
-        generatePlanet();
+        PlanetType[] types = PlanetType.values();
+        PlanetType type = types[random.nextInt(types.length)];
+
+        generator = new PlanetGenerator(type);
+
+        System.out.println("Planet type: " + type);
     }
 
     private void generatePlanet() {
@@ -178,20 +189,7 @@ public class PlanetPanel extends JPanel {
 
                 brightness = Math.max(0, Math.min(1, brightness));
 
-                int color;
-
-                if (value < 0.35)
-                    color = new Color(0, 0, 150).getRGB();
-                else if (value < 0.45)
-                    color = new Color(50, 120, 200).getRGB();
-                else if (value < 0.5)
-                    color = new Color(240, 230, 140).getRGB();
-                else if (value < 0.7)
-                    color = new Color(34, 139, 34).getRGB();
-                else if (value < 0.85)
-                    color = new Color(100, 100, 100).getRGB();
-                else
-                    color = Color.WHITE.getRGB();
+                int color = generator.getColor(value);
 
                 Color c = new Color(color);
 
