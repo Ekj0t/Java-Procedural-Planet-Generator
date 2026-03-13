@@ -36,7 +36,7 @@ public class PlanetPanel extends JPanel {
         int centerX = width / 2;
         int centerY = height / 2;
 
-        int radius = width / 2;
+        int radius = Math.min(width, height) / 2 - 40;
 
         double scale = 3.0;
 

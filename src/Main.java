@@ -10,7 +10,7 @@ public class Main {
         PlanetPanel panel = new PlanetPanel();
 
         frame.add(panel);
-        frame.setSize(800, 800);
+        frame.setSize(810, 830);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
