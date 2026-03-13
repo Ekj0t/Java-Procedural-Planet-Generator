@@ -112,6 +112,25 @@ public class PlanetPanel extends JPanel {
                         Math.min(255, b)
                 );
 
+                double edge = Math.sqrt(dist);
+
+                double atmosphere = edge - 0.89;
+
+                if (atmosphere > 0) {
+
+                    atmosphere = Math.pow(atmosphere * 6, 3);
+
+                    int ar = (int)(30 * atmosphere);
+                    int ag = (int)(80 * atmosphere);
+                    int ab = (int)(200 * atmosphere);
+
+                    r = Math.min(255, shaded.getRed() + ar);
+                    g = Math.min(255, shaded.getGreen() + ag);
+                    b = Math.min(255, shaded.getBlue() + ab);
+
+                    shaded = new Color(r, g, b);
+                }
+
                 image.setRGB(x, y, shaded.getRGB());
             }
         }
