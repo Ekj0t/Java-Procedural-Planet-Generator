@@ -70,11 +70,11 @@ public class PlanetPanel extends JPanel {
                 double longitude = Math.atan2(dy, dx);
                 double latitude = Math.acos(dz);
 
-                double nx = longitude * scale;
-                double ny = latitude * scale;
+                double value = noise.noise(dx * scale, dy * scale)
+                        + noise.noise(dy * scale, dz * scale)
+                        + noise.noise(dx * scale, dz * scale);
 
-                double value = noise.noise(nx, ny);
-
+                value /= 3.0;
                 int color;
 
                 if (value < 0.35)
