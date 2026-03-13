@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="" />
+    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Project Initiation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Ekj0t"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ekj0t/Java-Procedural-Planet-Generator.git",
+    "accountId": "9b6faed4-0e34-4fe7-a3aa-ba2a18348eb0"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
 }]]></component>
@@ -35,6 +57,27 @@
       <option name="presentableId" value="Default" />
       <updated>1773246369127</updated>
     </task>
+    <task id="LOCAL-00001" summary="Project Initiation">
+      <option name="closed" value="true" />
+      <created>1773246805480</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773246805480</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Project Initiation">
+      <option name="closed" value="true" />
+      <created>1773246843439</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1773246843439</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project Initiation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Initiation" />
   </component>
 </project>
