@@ -8,6 +8,10 @@ A **real-time procedural planet renderer** written in **pure Java (Swing)** that
 
 Each planet is created from a random seed and rendered as a 3D sphere with terrain shading, lighting, atmosphere, and multiple planet types.
 
+---
+
+# Demo
+
 ![Planet Demo](demo.gif)
 
 ---
