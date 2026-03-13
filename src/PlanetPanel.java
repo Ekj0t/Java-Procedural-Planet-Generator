@@ -32,6 +32,15 @@ public class PlanetPanel extends JPanel {
 
         double scale = 3.0;
 
+        double lightX = -0.5;
+        double lightY = -0.5;
+        double lightZ = 1;
+
+        double len = Math.sqrt(lightX*lightX + lightY*lightY + lightZ*lightZ);
+        lightX /= len;
+        lightY /= len;
+        lightZ /= len;
+
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
@@ -46,6 +55,17 @@ public class PlanetPanel extends JPanel {
                 }
 
                 double dz = Math.sqrt(1 - dist);
+
+                double nx3 = dx;
+                double ny3 = dy;
+                double nz3 = dz;
+
+                double brightness =
+                        nx3 * lightX +
+                                ny3 * lightY +
+                                nz3 * lightZ;
+
+                brightness = Math.max(0, brightness);
 
                 double longitude = Math.atan2(dy, dx);
                 double latitude = Math.acos(dz);
@@ -70,7 +90,19 @@ public class PlanetPanel extends JPanel {
                 else
                     color = Color.WHITE.getRGB();
 
-                image.setRGB(x, y, color);
+                Color c = new Color(color);
+
+                int r = (int)(c.getRed() * brightness);
+                int g = (int)(c.getGreen() * brightness);
+                int b = (int)(c.getBlue() * brightness);
+
+                Color shaded = new Color(
+                        Math.min(255, r),
+                        Math.min(255, g),
+                        Math.min(255, b)
+                );
+
+                image.setRGB(x, y, shaded.getRGB());
             }
         }
     }

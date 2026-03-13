@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Improved 2D terrain generation">
+    <list default="true" id="e97ef212-ed78-46fa-8fa7-9c62a52f07a6" name="Changes" comment="Converted 2D terrain to 3D sphere">
       <change beforePath="$PROJECT_DIR$/src/PlanetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlanetPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,13 +92,22 @@
       <option name="project" value="LOCAL" />
       <updated>1773411268063</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Converted 2D terrain to 3D sphere">
+      <option name="closed" value="true" />
+      <created>1773411474671</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773411474671</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project Initiation" />
     <MESSAGE value="2D terrain generation" />
     <MESSAGE value="Improved 2D terrain generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved 2D terrain generation" />
+    <MESSAGE value="Converted 2D terrain to 3D sphere" />
+    <option name="LAST_COMMIT_MESSAGE" value="Converted 2D terrain to 3D sphere" />
   </component>
 </project>
