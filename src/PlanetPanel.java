@@ -17,62 +17,58 @@ public class PlanetPanel extends JPanel {
         //SEED
         noise = new Noise(54321); // seed
 
-        generateTerrain();
+        generatePlanet();
     }
 
-    private void generateTerrain() {
+    private void generatePlanet() {
 
         int width = image.getWidth();
         int height = image.getHeight();
 
-        double scale = 0.01;
+        int centerX = width / 2;
+        int centerY = height / 2;
+
+        int radius = width / 2;
+
+        double scale = 3.0;
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
 
-                double nx = x * scale;
-                double ny = y * scale;
+                double dx = (x - centerX) / (double) radius;
+                double dy = (y - centerY) / (double) radius;
 
-                double value = 0;
+                double dist = dx * dx + dy * dy;
 
-                double amplitude = 1;
-                double frequency = 1;
-
-                double maxValue = 0;
-
-                for (int i = 0; i < 5; i++) {
-
-                    value += noise.noise(nx * frequency, ny * frequency) * amplitude;
-
-                    maxValue += amplitude;
-
-                    amplitude *= 0.5;
-                    frequency *= 2;
+                if (dist > 1) {
+                    image.setRGB(x, y, Color.BLACK.getRGB());
+                    continue;
                 }
 
-                value /= maxValue;
-                value = Math.pow(value, 1.2);
+                double dz = Math.sqrt(1 - dist);
+
+                double longitude = Math.atan2(dy, dx);
+                double latitude = Math.acos(dz);
+
+                double nx = longitude * scale;
+                double ny = latitude * scale;
+
+                double value = noise.noise(nx, ny);
 
                 int color;
 
-                if (value < 0.35) {
-                    color = new Color(0, 0, 150).getRGB(); // deep ocean
-                }
-                else if (value < 0.45) {
-                    color = new Color(50, 120, 200).getRGB(); // shallow water
-                }
-                else if (value < 0.5) {
-                    color = new Color(240, 230, 140).getRGB(); // beach
-                }
-                else if (value < 0.7) {
-                    color = new Color(34, 139, 34).getRGB(); // land
-                }
-                else if (value < 0.85) {
-                    color = new Color(100, 100, 100).getRGB(); // mountains
-                }
-                else {
-                    color = Color.WHITE.getRGB(); // snow
-                }
+                if (value < 0.35)
+                    color = new Color(0, 0, 150).getRGB();
+                else if (value < 0.45)
+                    color = new Color(50, 120, 200).getRGB();
+                else if (value < 0.5)
+                    color = new Color(240, 230, 140).getRGB();
+                else if (value < 0.7)
+                    color = new Color(34, 139, 34).getRGB();
+                else if (value < 0.85)
+                    color = new Color(100, 100, 100).getRGB();
+                else
+                    color = Color.WHITE.getRGB();
 
                 image.setRGB(x, y, color);
             }
