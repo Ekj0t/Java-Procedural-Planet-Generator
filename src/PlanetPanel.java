@@ -50,7 +50,7 @@ public class PlanetPanel extends JPanel {
             }
         });
 
-        new Timer(33, e -> {
+        new Timer(30, e -> {
             rotation += 0.01;
             generatePlanet();
             repaint();
@@ -201,38 +201,21 @@ public class PlanetPanel extends JPanel {
 
                 int color = generator.getColor(value);
 
-                Color c = new Color(color);
+                int r = ((color >> 16) & 255);
+                int g = ((color >> 8) & 255);
+                int b = (color & 255);
 
-                int r = (int)(c.getRed() * brightness);
-                int g = (int)(c.getGreen() * brightness);
-                int b = (int)(c.getBlue() * brightness);
+                r = (int)(r * brightness);
+                g = (int)(g * brightness);
+                b = (int)(b * brightness);
 
-                Color shaded = new Color(
-                        Math.min(255, r),
-                        Math.min(255, g),
-                        Math.min(255, b)
-                );
+                r = Math.min(255, r);
+                g = Math.min(255, g);
+                b = Math.min(255, b);
 
-                double edge = Math.sqrt(dist);
+                int rgb = (r << 16) | (g << 8) | b;
 
-                double atmosphere = edge - 0.89;
-
-                if (atmosphere > 0) {
-
-                    atmosphere = Math.pow(atmosphere * 6, 3);
-
-                    int ar = (int)(30 * atmosphere);
-                    int ag = (int)(80 * atmosphere);
-                    int ab = (int)(200 * atmosphere);
-
-                    r = Math.min(255, shaded.getRed() + ar);
-                    g = Math.min(255, shaded.getGreen() + ag);
-                    b = Math.min(255, shaded.getBlue() + ab);
-
-                    shaded = new Color(r, g, b);
-                }
-
-                image.setRGB(x, y, shaded.getRGB());
+                image.setRGB(x, y, rgb);
             }
         }
     }
