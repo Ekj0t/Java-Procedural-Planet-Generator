@@ -163,21 +163,6 @@ src
 
 ---
 
-# 🚀 Running the Project
-
-Compile and run:
-
-```
-
-javac *.java
-java Main
-
-```
-
-Or run directly using **IntelliJ IDEA**.
-
----
-
 # 🧩 Concepts Used
 
 - Procedural generation
