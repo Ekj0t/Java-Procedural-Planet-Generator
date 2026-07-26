@@ -16,40 +16,40 @@ Each planet is created from a random seed and rendered as a 3D sphere with terra
 
 ---
 
-# ✨ Features
+# Features
 
-### 🌍 Procedural Terrain
+### Procedural Terrain
 Terrain is generated using **fractal noise**, producing continents, mountains, and coastlines.
 
-### 🔄 Real-Time Planet Rotation
+### Real-Time Planet Rotation
 Planets rotate smoothly by rotating the noise sampling coordinates.
 
-### ☀️ Lighting System
+### Lighting System
 Includes:
 
 - directional sunlight
 - ambient lighting
 - limb darkening
 
-### ⛰ Terrain Relief Shading
+### Terrain Relief Shading
 Slope-based shading enhances mountains and valleys.
 
-### 🌫 Atmospheric Glow
+### Atmospheric Glow
 Subtle atmospheric scattering around the planet edge.
 
-### 🪐 Multiple Planet Types
+### Multiple Planet Types
 
-- 🌍 Earth-like
-- 🏜 Desert
-- 🧊 Ice
-- 🌋 Lava
+- Earth-like
+- Desert
+- Ice
+- Lava
 
-### 🎲 Infinite Planets
+### Infinite Planets
 Each seed generates a completely unique world.
 
 ---
 
-# 🎮 Controls
+# Controls
 
 | Key | Action |
 |----|----|
@@ -67,9 +67,9 @@ Seed: -492381234987123
 
 ---
 
-# 🧠 How It Works
+# How It Works
 
-## 1️⃣ Sphere Projection
+## Sphere Projection
 
 Each screen pixel is projected onto a unit sphere:
 
@@ -83,7 +83,7 @@ This converts a 2D image into a 3D planet surface.
 
 ---
 
-## 2️⃣ Fractal Noise Terrain
+## Fractal Noise Terrain
 
 Terrain height uses **multiple noise octaves**:
 
@@ -101,7 +101,7 @@ This produces large continents and fine terrain detail.
 
 ---
 
-## 3️⃣ Planet Rotation
+## Planet Rotation
 
 Instead of rotating geometry, the terrain sampling coordinates rotate:
 
@@ -116,7 +116,7 @@ This creates smooth planet rotation.
 
 ---
 
-## 4️⃣ Lighting Model
+## Lighting Model
 
 Directional lighting uses Lambert shading:
 
@@ -134,13 +134,13 @@ Additional effects include:
 
 ---
 
-## 5️⃣ Atmospheric Rim
+## Atmospheric Rim
 
 A thin atmospheric glow is added near the edge of the planet.
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```
 
@@ -163,7 +163,7 @@ src
 
 ---
 
-# 🧩 Concepts Used
+# Concepts Used
 
 - Procedural generation
 - Fractal noise
@@ -174,14 +174,14 @@ src
 
 ---
 
-# 🔮 Possible Improvements
+# Possible Improvements
 
 Future extensions could include:
 
-- ☁️ Cloud layers
-- 🌊 Ocean reflections
-- 🪐 Planet rings
-- 🌌 Star background
-- 🚀 OpenGL / GPU rendering
+- Cloud layers
+- Ocean reflections
+- Planet rings
+- Star background
+- OpenGL / GPU rendering
 
 ---
